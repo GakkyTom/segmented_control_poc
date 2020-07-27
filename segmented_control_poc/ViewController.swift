@@ -51,17 +51,28 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        updateSwitch.selectedSegmentIndex = 0
+
         let index = idList.firstIndex(of: viewController.restorationIdentifier!)!
         if (index > 0) {
-            return storyboard!.instantiateViewController(withIdentifier: idList[index - 1])
+
+//            updateSwitch.selectedSegmentIndex = 0
+            let sb = UIStoryboard(name: "FirstViewController", bundle: nil)
+            return sb.instantiateInitialViewController() as! FirstViewController
+
+//            return storyboard!.instantiateViewController(withIdentifier: idList[index - 1])
         }
         return nil
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        updateSwitch.selectedSegmentIndex = 1
+
         let index = idList.firstIndex(of: viewController.restorationIdentifier!)!
         if (index < idList.count - 1) {
-            return storyboard!.instantiateViewController(withIdentifier: idList[index + 1])
+            let sb = UIStoryboard(name: "SecondViewController", bundle: nil)
+            return sb.instantiateInitialViewController() as! SecondViewController
+//            return storyboard!.instantiateViewController(withIdentifier: idList[index + 1])
         }
         return nil
     }
