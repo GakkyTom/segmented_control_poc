@@ -15,8 +15,10 @@
 		C0113A9A24CE72B1009C41F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0113A9824CE72B1009C41F0 /* LaunchScreen.storyboard */; };
 		C0113AA524CE72B1009C41F0 /* segmented_control_pocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0113AA424CE72B1009C41F0 /* segmented_control_pocTests.swift */; };
 		C0113AB024CE72B1009C41F0 /* segmented_control_pocUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0113AAF24CE72B1009C41F0 /* segmented_control_pocUITests.swift */; };
-		C0113ABE24CE7BB8009C41F0 /* YellowViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0113ABD24CE7BB7009C41F0 /* YellowViewController.storyboard */; };
-		C0113AC024CE7BC7009C41F0 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0113ABF24CE7BC7009C41F0 /* YellowViewController.swift */; };
+		C0113ABE24CE7BB8009C41F0 /* FirstViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0113ABD24CE7BB7009C41F0 /* FirstViewController.storyboard */; };
+		C0113AC024CE7BC7009C41F0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0113ABF24CE7BC7009C41F0 /* FirstViewController.swift */; };
+		C0731EC024CF16D2003A7FC5 /* SecondViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0731EBF24CF16D2003A7FC5 /* SecondViewController.storyboard */; };
+		C0731EC224CF1718003A7FC5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0731EC124CF1718003A7FC5 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +53,10 @@
 		C0113AAB24CE72B1009C41F0 /* segmented_control_pocUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = segmented_control_pocUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0113AAF24CE72B1009C41F0 /* segmented_control_pocUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmented_control_pocUITests.swift; sourceTree = "<group>"; };
 		C0113AB124CE72B1009C41F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0113ABD24CE7BB7009C41F0 /* YellowViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YellowViewController.storyboard; sourceTree = "<group>"; };
-		C0113ABF24CE7BC7009C41F0 /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
+		C0113ABD24CE7BB7009C41F0 /* FirstViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstViewController.storyboard; sourceTree = "<group>"; };
+		C0113ABF24CE7BC7009C41F0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C0731EBF24CF16D2003A7FC5 /* SecondViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondViewController.storyboard; sourceTree = "<group>"; };
+		C0731EC124CF1718003A7FC5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +107,17 @@
 		C0113A8C24CE72AE009C41F0 /* segmented_control_poc */ = {
 			isa = PBXGroup;
 			children = (
+				C0113A9B24CE72B1009C41F0 /* Info.plist */,
+				C0113ABD24CE7BB7009C41F0 /* FirstViewController.storyboard */,
+				C0731EBF24CF16D2003A7FC5 /* SecondViewController.storyboard */,
 				C0113A8D24CE72AF009C41F0 /* AppDelegate.swift */,
+				C0113ABF24CE7BC7009C41F0 /* FirstViewController.swift */,
+				C0731EC124CF1718003A7FC5 /* SecondViewController.swift */,
 				C0113A8F24CE72AF009C41F0 /* SceneDelegate.swift */,
 				C0113A9124CE72AF009C41F0 /* ViewController.swift */,
-				C0113ABF24CE7BC7009C41F0 /* YellowViewController.swift */,
-				C0113ABD24CE7BB7009C41F0 /* YellowViewController.storyboard */,
-				C0113A9324CE72AF009C41F0 /* Main.storyboard */,
 				C0113A9624CE72B1009C41F0 /* Assets.xcassets */,
 				C0113A9824CE72B1009C41F0 /* LaunchScreen.storyboard */,
-				C0113A9B24CE72B1009C41F0 /* Info.plist */,
+				C0113A9324CE72AF009C41F0 /* Main.storyboard */,
 			);
 			path = segmented_control_poc;
 			sourceTree = "<group>";
@@ -239,7 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0113A9A24CE72B1009C41F0 /* LaunchScreen.storyboard in Resources */,
-				C0113ABE24CE7BB8009C41F0 /* YellowViewController.storyboard in Resources */,
+				C0113ABE24CE7BB8009C41F0 /* FirstViewController.storyboard in Resources */,
+				C0731EC024CF16D2003A7FC5 /* SecondViewController.storyboard in Resources */,
 				C0113A9724CE72B1009C41F0 /* Assets.xcassets in Resources */,
 				C0113A9524CE72AF009C41F0 /* Main.storyboard in Resources */,
 			);
@@ -266,9 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0113AC024CE7BC7009C41F0 /* YellowViewController.swift in Sources */,
+				C0113AC024CE7BC7009C41F0 /* FirstViewController.swift in Sources */,
 				C0113A9224CE72AF009C41F0 /* ViewController.swift in Sources */,
 				C0113A8E24CE72AF009C41F0 /* AppDelegate.swift in Sources */,
+				C0731EC224CF1718003A7FC5 /* SecondViewController.swift in Sources */,
 				C0113A9024CE72AF009C41F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

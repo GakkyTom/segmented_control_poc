@@ -7,14 +7,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Yellow View Controller-->
+        <!--First View Controller-->
         <scene sceneID="jsG-2y-yV8">
             <objects>
-                <viewController storyboardIdentifier="YellowViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2XS-ft-7y8" customClass="YellowViewController" customModule="segmented_control_poc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2XS-ft-7y8" customClass="FirstViewController" customModule="segmented_control_poc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zNS-hG-VAu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXK-I7-NUI">
+                                <rect key="frame" x="130" y="437.5" width="154.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mXK-I7-NUI" firstAttribute="centerY" secondItem="zNS-hG-VAu" secondAttribute="centerY" id="G4f-ta-CGa"/>
+                            <constraint firstItem="mXK-I7-NUI" firstAttribute="centerX" secondItem="zNS-hG-VAu" secondAttribute="centerX" id="jfY-Ch-JaJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PN8-jG-Su8"/>
                     </view>
                     <navigationItem key="navigationItem" id="uXB-Nn-WOj"/>

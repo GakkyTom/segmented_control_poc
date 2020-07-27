@@ -1,5 +1,5 @@
 //
-//  YellowViewController.swift
+//  FirstViewController.swift
 //  segmented_control_poc
 //
 //  Created by tomoyaitagaki on 2020/07/27.
@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-class YellowViewController: UIViewController {
+class FirstViewController: UIViewController {
     // do nothing
 }

@@ -8,17 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-    @IBOutlet weak var segmentedContol: UISegmentedControl!
-    @IBOutlet weak var colorLabel: UILabel!
+    let idList = ["FirstViewController", "SecondViewController"]
+
+    var pageViewController: UIPageViewController!
+    var viewControllers: [UIViewController] = []
 
     private lazy var updateSwitch: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Sign In", "Sign Out"])
+        let sc = UISegmentedControl(items: ["First", "Second"])
 //        sc.widthForSegment(at: 128)  //sc.anchor(width: 128, height: 32)
         sc.selectedSegmentIndex = 0
         sc.tintColor = .cyan
-        sc.backgroundColor = .darkGray
+        sc.backgroundColor = .lightGray
         sc.addTarget(self, action: #selector(handleSegmentedControlSwitch(_:)), for: .valueChanged)
         return sc
     }()
@@ -29,39 +31,56 @@ class ViewController: UIViewController {
         segmented.addTarget(self, action: #selector(handleSegmentedControlSwitch(_:)), for: .valueChanged)
         navigationItem.titleView = segmented
 
-        segmentedContol.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.red], for: .normal)
+        for id in idList {
+//            let sb = UIStoryboard(name: id, bundle: nil)
+            if id == "FirstViewController" {
+                let sb = UIStoryboard(name: "FirstViewController", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! FirstViewController
+                viewControllers.append(vc)
+            } else {
+                let sb = UIStoryboard(name: "SecondViewController", bundle: nil)
+                let vc = sb.instantiateInitialViewController() as! SecondViewController
+                viewControllers.append(vc)
+            }
+        }
+
+        pageViewController = (children[0] as! UIPageViewController)
+        pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        let index = idList.firstIndex(of: viewController.restorationIdentifier!)!
+        if (index > 0) {
+            return storyboard!.instantiateViewController(withIdentifier: idList[index - 1])
+        }
+        return nil
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        let index = idList.firstIndex(of: viewController.restorationIdentifier!)!
+        if (index < idList.count - 1) {
+            return storyboard!.instantiateViewController(withIdentifier: idList[index + 1])
+        }
+        return nil
     }
 
     @objc func handleSegmentedControlSwitch(_ segmentedControl: UISegmentedControl) {
-        switch(segmentedControl.selectedSegmentIndex) {
+        switch(updateSwitch.selectedSegmentIndex) {
+//            switch sender.selectedSegmentIndex {
             case 0:
-                print("Sign In")
-            break
+                print("0")
+                pageViewController.setViewControllers([viewControllers[0]], direction: .reverse, animated: true, completion: nil)
+                break
             case 1:
-                print("Sign Out")
-            break
+                print("1")
+                pageViewController.setViewControllers([viewControllers[1]], direction: .forward, animated: true, completion: nil)
+                break
             default:
-            break
+                return
+//            }
         }
-    }
-
-    @IBAction func segmentedControlToggled(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            colorLabel.text = "Yellow"
-            colorLabel.textColor = UIColor.yellow
-            let sb = UIStoryboard(name: "YellowViewController", bundle: nil)
-            let vc = sb.instantiateInitialViewController() as! YellowViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-        case 1:
-            colorLabel.text = "Green"
-            colorLabel.textColor = UIColor.green
-        default:
-            colorLabel.text = "Color Label"
-            colorLabel.textColor = UIColor.black
-        }
-
-
     }
 
 }
