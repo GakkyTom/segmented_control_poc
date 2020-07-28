@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
 
     private lazy var updateSwitch: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["First", "Second"])
-//        sc.widthForSegment(at: 128)  //sc.anchor(width: 128, height: 32)
+        //        sc.widthForSegment(at: 128)  //sc.anchor(width: 128, height: 32)
         sc.selectedSegmentIndex = 0
         sc.tintColor = .cyan
         sc.backgroundColor = .lightGray
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         navigationItem.titleView = segmented
 
         for id in idList {
-//            let sb = UIStoryboard(name: id, bundle: nil)
+            //            let sb = UIStoryboard(name: id, bundle: nil)
             if id == "FirstViewController" {
                 let sb = UIStoryboard(name: "FirstViewController", bundle: nil)
                 let vc = sb.instantiateInitialViewController() as! FirstViewController
@@ -51,47 +51,41 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        updateSwitch.selectedSegmentIndex = 0
 
         let index = idList.firstIndex(of: viewController.restorationIdentifier!)!
-        if (index > 0) {
+        updateSwitch.selectedSegmentIndex = index
 
-//            updateSwitch.selectedSegmentIndex = 0
+        if (index > 0) {
+            updateSwitch.selectedSegmentIndex = 0
             let sb = UIStoryboard(name: "FirstViewController", bundle: nil)
             return sb.instantiateInitialViewController() as! FirstViewController
-
-//            return storyboard!.instantiateViewController(withIdentifier: idList[index - 1])
         }
         return nil
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        updateSwitch.selectedSegmentIndex = 1
-
         let index = idList.firstIndex(of: viewController.restorationIdentifier!)!
+        updateSwitch.selectedSegmentIndex = index
+
         if (index < idList.count - 1) {
             let sb = UIStoryboard(name: "SecondViewController", bundle: nil)
             return sb.instantiateInitialViewController() as! SecondViewController
-//            return storyboard!.instantiateViewController(withIdentifier: idList[index + 1])
         }
         return nil
     }
 
     @objc func handleSegmentedControlSwitch(_ segmentedControl: UISegmentedControl) {
         switch(updateSwitch.selectedSegmentIndex) {
-//            switch sender.selectedSegmentIndex {
-            case 0:
-                print("0")
-                pageViewController.setViewControllers([viewControllers[0]], direction: .reverse, animated: true, completion: nil)
-                break
-            case 1:
-                print("1")
-                pageViewController.setViewControllers([viewControllers[1]], direction: .forward, animated: true, completion: nil)
-                break
-            default:
-                return
-//            }
+        case 0:
+            print("0")
+            pageViewController.setViewControllers([viewControllers[0]], direction: .reverse, animated: true, completion: nil)
+            break
+        case 1:
+            print("1")
+            pageViewController.setViewControllers([viewControllers[1]], direction: .forward, animated: true, completion: nil)
+            break
+        default:
+            return
         }
     }
-
 }
